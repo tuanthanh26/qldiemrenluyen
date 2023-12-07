@@ -12,8 +12,8 @@
 */
 
 Route::get('/', function () {
-    return view('master')->name('master');
-});
+    return view('login');
+})->name('master');
 
 Route::get('index','HomeController@index')->name('get.index');
 
@@ -86,6 +86,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 
 
-Route::get('login',['as'=>'admin.login.getLogin','uses'=>'Auth\LoginController@getLogin']);
-Route::post('login',['as'=>'admin.login.postLogin','uses'=>'Auth\LoginController@postLogin']);
-Route::get('logout',['as'=>'admin.logout','uses'=>'Auth\LoginController@logout']);
+// Route::get('login',['as'=>'admin.login.getLogin','uses'=>'Auth\LoginController@getLogin'])->name('plogin');
+// Route::post('/login',['as'=>'admin.login.postLogin','uses'=>'Auth\LoginController@postLogin'])->name('admin.login');
+// Route::get('logout',['as'=>'admin.logout','uses'=>'Auth\LoginController@logout'])->name('plogin');
+
+Route::post('login', 'Auth\LoginController@postLogin')->name('admin.login');

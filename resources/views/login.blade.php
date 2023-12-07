@@ -34,17 +34,19 @@
     <div class="login-box-body">
         <h3 class="login-box-msg">Đăng nhập hệ thống </h3>
 
-        <form action="../../index2.html" method="post">
+        <form action="{{ route('admin.login') }}" method="post">
+                   @csrf
             <div class="form-group has-feedback">
-                <input type="email" class="form-control" placeholder="User">
+                <input type="email" name="email" class="form-control" placeholder="User">
                 <span class="glyphicon glyphicon-user form-control-feedback"></span>
             </div>
             <div class="form-group has-feedback">
-                <input type="password" class="form-control" placeholder="Password">
+                <input type="password" name="password" class="form-control" placeholder="Password">
                 <span class="glyphicon glyphicon-lock form-control-feedback"></span>
             </div>
 
             <div class="form-group">
+
                 <label for="">--Chọn quyền-- </label>
                 <select name="" id="" class="form-control">
                     <option value="">Sinh viên</option>

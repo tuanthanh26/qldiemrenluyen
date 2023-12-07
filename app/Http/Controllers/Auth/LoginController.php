@@ -7,7 +7,6 @@ use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
-//use Auth;
 use Illuminate\Support\Facades\Auth;
 class LoginController extends Controller
 {
@@ -53,12 +52,13 @@ class LoginController extends Controller
             'email' => $request->email,
             'password' => $request->password
         );
+        dd($login);
         if ($this->auth->attempt($login)) {
-            // Authentication passed...
             return redirect()->route('get.index');
         }
         else {
             return redirect()->back();
+
         }
 
     }
